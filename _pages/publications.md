@@ -11,6 +11,24 @@ author_profile: true
 
 {% include base_path %}
 
+<h2>Published Papers</h2>
 {% for post in site.publications reversed %}
-  {% include archive-single.html %}
+  {% if post.pubtype == 'published' %}
+      {% include archive-single.html %}
+  {% endif %}
+{% endfor %}
+
+
+<h2>Preprints</h2>
+{% for post in site.publications reversed %}
+  {% if post.pubtype == 'preprint' %}
+      {% include archive-single.html %}
+  {% endif %}
+{% endfor %}
+
+<h2>Academic</h2>
+{% for post in site.publications reversed %}
+  {% if post.pubtype == 'thesis' %}
+      {% include archive-single.html %}
+  {% endif %}
 {% endfor %}
